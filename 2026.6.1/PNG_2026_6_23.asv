@@ -1,0 +1,89 @@
+function n = PNG_2026_6_22(u)
+%%读取输入
+X=u(1);Y=u(2);H=u(3);v_x=u(4);v_y=u(5);v_z=u(6);
+X_target=u(7);Y_target=u(8);Z_target=u(9);v_x_target=u(10);v_y_target=u(11);v_z_target=u(12);
+Q=u(13);f_psi=u(14);
+%%参数设置
+Parameter; %基本参数文件
+N = 4;
+R_to_earth = earth_r+H; %R_to_earth为地心距
+g = (earth_r/R_to_earth)^2*g0;
+
+
+%%
+r_m=[X;Y;H];
+v_m=[v_x;v_y;v_z];
+r_t=[X_target;Y_target;Z_target];
+v_t=[v_x_target;v_y_target;v_z_target];
+r = r_t - r_m;
+v = v_t - v_m;
+R = norm(r);
+
+if R < 1e-6
+    ny_cmd = 0;
+    nz_cmd = 0;
+    return;
+end
+
+lambda = r / R;
+% 闭合速度
+Vc = -dot(r, v) / R;
+
+omegaLOS = cross(r, v) / R^2;
+
+% PN加速度（惯性系）
+% a_cmd = N * Vc * cross(r, cross(r, v)) / (R^3);
+if Vc > 0
+    a_cmd = N * Vc * cross(omegaLOS, lambda);
+else
+    a_cmd = [0; 0; 0];
+end
+
+%% ===== 构造弹道坐标系 =====
+
+% x轴（速度方向）
+ex = v_m / norm(v_m);
+
+% y轴（侧向）
+
+h = [0;0;1];
+
+ey = cross(h,ex);
+if norm(ey) < 1e-9
+    inertialRight = [0; 1; 0];
+    ey = cross(inertialRight, ex);
+end
+ey = ey/norm(ey);
+% z轴
+ez = cross(ex,ey);
+ez = ez/norm(ez);
+
+%% ===== 投影 =====
+a_cmd_NoAxial = a_cmd - dot(a_cmd, ex) * ex;
+ay = dot(ey, a_cmd_NoAxial);
+az = dot(ez, a_cmd_NoAxial);
+
+% 转过载
+ny_cmd = ay / g;
+nz_cmd = az / g;
+
+% % --- 过载调度 ---
+ny_cmd = ny_cmd * (Q / (Q + 1000));
+nz_cmd = nz_cmd * (Q / (Q + 1000));
+
+if ny_cmd <1e-4 && ny_cmd >-1e-4 
+    ny_cmd = 0;
+end
+if nz_cmd <1e-4 && nz_cmd >-1e-4 
+    nz_cmd = 0;
+end
+ny_cmd = 0-6371000;
+
+
+gamma = atan2(v_m(3), hypot(v_m(1), v_m(2)));
+lambda_elev = atan2(r(3), hypot(r(1), r(2)));
+angle_error = lambda_elev - gamma;
+
+n=[ny_cmd;nz_cmd;angle_error];
+
+end
