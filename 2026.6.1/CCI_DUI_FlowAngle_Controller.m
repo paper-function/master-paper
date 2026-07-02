@@ -25,7 +25,7 @@ if rank(g_s)==3
 else
     g_s_inv = pinv(g_s);
 end
-K = diag([3 4 4]); %[1 3 2] [3 4 4]
+K = diag([4.5 4 4]); %[1 3 2] [3 4 4]
 
 % CCI_FlowAngle = (tanh(e_s'*f_s)+1)/2;
 CCI_FlowAngle = CCI(e_s,f_s);

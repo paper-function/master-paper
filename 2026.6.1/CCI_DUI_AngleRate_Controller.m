@@ -25,7 +25,7 @@ if rank(g_f)==3
 else
     g_f_inv = pinv(g_f);
 end
-K1 = diag([10 7.5 10]); %[4 6 4] [10 10 10]
+K1 = diag([10 8.5 10]); %[4 6 4] [10 10 10]
 
 % CCI_AngleRate = (tanh(e_f'*f_f)+1)/2;
 CCI_AngleRate = CCI(e_f,f_f);
