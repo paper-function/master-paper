@@ -11,8 +11,8 @@ delete(fullfile(outputFolder, "case_*_flight_data.mat"));
 
 thetaDesiredDeg = [-41, -43, -45, -47.5, -50];
 psiDesiredDeg = [14.5, 16, 17.5, 19, 20.5];
-thetaInitialDeg = [-41, -43, -45, -47.5, -50];
-psiInitialDeg = [14.5, 16, 17.5, 19, 20.5];
+thetaInitialDeg = [-41.1, -43, -45, -47.45, -49.9];
+psiInitialDeg = [14.6, 16, 17.5, 18.95, 20.4];
 initialAltitudeM = [25000, 25000, 25000, 25000, 25000];
 targetPositionM = [25000, 7500, 0];
 horizontalRangeM = initialAltitudeM ./ tand(abs(thetaInitialDeg));
