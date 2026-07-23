@@ -1,0 +1,208 @@
+Model: Ctrl_For_HRV
+File: D:\codex\Project\单飞行器控制_ADRC\Ctrl_For_HRV.slx
+InitFcn: Parameter;
+Solver: ode4
+FixedStep: 0.02
+StopTime: 100
+
+Dependency analysis
+  FILE D:\codex\Project\单飞行器控制_ADRC\AngleRate_Controller.m
+  FILE D:\codex\Project\单飞行器控制_ADRC\Coefficient_Drag.m
+  FILE D:\codex\Project\单飞行器控制_ADRC\Coefficient_Lift.m
+  FILE D:\codex\Project\单飞行器控制_ADRC\Coefficient_PitchMoment.m
+  FILE D:\codex\Project\单飞行器控制_ADRC\Coefficient_RollingMoment.m
+  FILE D:\codex\Project\单飞行器控制_ADRC\Coefficient_Side.m
+  FILE D:\codex\Project\单飞行器控制_ADRC\Coefficient_YawingMoment.m
+  FILE D:\codex\Project\单飞行器控制_ADRC\Ctrl_For_HRV.slx
+  FILE D:\codex\Project\单飞行器控制_ADRC\Ctrl_For_HRV.slxc
+  FILE D:\codex\Project\单飞行器控制_ADRC\FlowAngle_Controller.m
+  FILE D:\codex\Project\单飞行器控制_ADRC\HRV_Model.m
+  FILE D:\codex\Project\单飞行器控制_ADRC\M_Q.m
+  FILE D:\codex\Project\单飞行器控制_ADRC\Model_atmoscoesa.m
+  FILE D:\codex\Project\单飞行器控制_ADRC\Parameter.m
+  FILE D:\codex\Project\单飞行器控制_ADRC\fastloop_ESO.m
+  FILE D:\codex\Project\单飞行器控制_ADRC\fhan.m
+  FILE D:\codex\Project\单飞行器控制_ADRC\slowloop_ESO.m
+Products returned by MATLAB: 11
+
+Compile/update: OK
+
+Total blocks: 630
+
+S-functions
+  Ctrl_For_HRV/AngleRate_ESO/S-Function | Function=fastloop_ESO | Params=
+  Ctrl_For_HRV/FlowAngle_ESO/S-Function | Function=slowloop_ESO | Params=
+  Ctrl_For_HRV/HRV_Model/Aerodynamic Parameter perturbation/MATLAB Function/ SFunction  | Function=sf_sfun | Params=
+  Ctrl_For_HRV/HRV_Model/S-Function | Function=HRV_Model | Params=
+  Ctrl_For_HRV/MATLAB Function/ SFunction  | Function=sf_sfun | Params=
+
+Top-level blocks and key parameters
+  Add                              Sum           
+  Add1                             Sum           
+  Add2                             Sum           
+  Add3                             Sum           
+  Add4                             Sum           
+  Add5                             Sum           
+  AngleRate_Controller             SubSystem     
+  AngleRate_ESO                    SubSystem     
+  Constant                         Constant       Value=9
+  Constant1                        Constant       Value=0
+  Constant2                        Constant       Value=-15
+  FlowAngle_Controller             SubSystem     
+  FlowAngle_ESO                    SubSystem     
+  From                             From           Tag=lon
+  From1                            From           Tag=lat
+  From10                           From           Tag=alpha_noise
+  From11                           From           Tag=alpha
+  From12                           From           Tag=r_c
+  From13                           From           Tag=p_noise
+  From14                           From           Tag=p_c
+  From15                           From           Tag=q_c
+  From16                           From           Tag=r_noise
+  From17                           From           Tag=q_noise
+  From18                           From           Tag=p_noise
+  From19                           From           Tag=p_c
+  From2                            From           Tag=q_noise
+  From20                           From           Tag=q_c
+  From21                           From           Tag=r_noise
+  From22                           From           Tag=r_c
+  From23                           From           Tag=beta_c
+  From24                           From           Tag=miu_noise
+  From25                           From           Tag=beta_noise
+  From26                           From           Tag=alpha_noise
+  From27                           From           Tag=alpha_c
+  From28                           From           Tag=beta_noise
+  From29                           From           Tag=beta_c
+  From3                            From           Tag=X
+  From30                           From           Tag=miu_noise
+  From31                           From           Tag=miu_c
+  From32                           From           Tag=delta_r_d
+  From33                           From           Tag=delta_a
+  From34                           From           Tag=delta_a_d
+  From35                           From           Tag=delta_e_d
+  From36                           From           Tag=delta_r
+  From37                           From           Tag=delta_e
+  From38                           From           Tag=alpha
+  From39                           From           Tag=beta
+  From4                            From           Tag=Y
+  From40                           From           Tag=miu
+  From41                           From           Tag=p
+  From42                           From           Tag=q
+  From43                           From           Tag=r
+  From5                            From           Tag=H
+  From6                            From           Tag=V
+  From7                            From           Tag=psi
+  From8                            From           Tag=theta
+  From9                            From           Tag=miu_c
+  Gain                             Gain           Gain=180/pi
+  Gain1                            Gain           Gain=180/pi
+  Gain10                           Gain           Gain=180/pi
+  Gain11                           Gain           Gain=180/pi
+  Gain12                           Gain           Gain=180/pi
+  Gain13                           Gain           Gain=180/pi
+  Gain14                           Gain           Gain=180/pi
+  Gain15                           Gain           Gain=pi/180
+  Gain16                           Gain           Gain=pi/180
+  Gain2                            Gain           Gain=180/pi
+  Gain3                            Gain           Gain=180/pi
+  Gain4                            Gain           Gain=180/pi
+  Gain5                            Gain           Gain=180/pi
+  Gain6                            Gain           Gain=180/pi
+  Gain7                            Gain           Gain=180/pi
+  Gain8                            Gain           Gain=pi/180
+  Gain9                            Gain           Gain=180/pi
+  Goto                             Goto           Tag=lon
+  Goto1                            Goto           Tag=lat
+  Goto10                           Goto           Tag=miu
+  Goto11                           Goto           Tag=p
+  Goto12                           Goto           Tag=q
+  Goto13                           Goto           Tag=r
+  Goto14                           Goto           Tag=alpha_noise
+  Goto15                           Goto           Tag=beta_noise
+  Goto16                           Goto           Tag=miu_noise
+  Goto17                           Goto           Tag=p_noise
+  Goto18                           Goto           Tag=q_noise
+  Goto19                           Goto           Tag=r_noise
+  Goto2                            Goto           Tag=X
+  Goto3                            Goto           Tag=Y
+  Goto4                            Goto           Tag=H
+  Goto5                            Goto           Tag=V
+  Goto6                            Goto           Tag=psi
+  Goto7                            Goto           Tag=theta
+  Goto8                            Goto           Tag=alpha
+  Goto9                            Goto           Tag=beta
+  HRV_Model                        SubSystem     
+  MATLAB Function                  SubSystem     
+  Mux                              Mux           
+  Mux1                             Mux           
+  Mux2                             Mux           
+  Mux3                             Mux           
+  Mux4                             Mux           
+  Mux5                             Mux           
+  Mux6                             Mux           
+  Mux7                             Mux           
+  Mux8                             Mux           
+  Scope_H                          Scope         
+  Scope_V                          Scope         
+  Scope_X                          Scope         
+  Scope_Y                          Scope         
+  Scope_alpha                      Scope         
+  Scope_beta                       Scope         
+  Scope_delta_a                    Scope         
+  Scope_delta_e                    Scope         
+  Scope_delta_r                    Scope         
+  Scope_e_alpha                    Scope         
+  Scope_e_beta                     Scope         
+  Scope_e_miu                      Scope         
+  Scope_e_p                        Scope         
+  Scope_e_q                        Scope         
+  Scope_e_r                        Scope         
+  Scope_lat                        Scope         
+  Scope_lon                        Scope         
+  Scope_miu                        Scope         
+  Scope_p                          Scope         
+  Scope_psi                        Scope         
+  Scope_q                          Scope         
+  Scope_r                          Scope         
+  Scope_theta                      Scope         
+  actuator                         SubSystem     
+  actuator1                        SubSystem     
+  actuator2                        SubSystem     
+
+Actuator limits
+  Ctrl_For_HRV/actuator
+    Saturation Lower=-90 Upper=90
+    Saturation1 Lower=-30 Upper=30
+    Gain Gain=50
+  Ctrl_For_HRV/actuator1
+    Saturation Lower=-90 Upper=90
+    Saturation1 Lower=-30 Upper=30
+    Gain Gain=50
+  Ctrl_For_HRV/actuator2
+    Saturation Lower=-90 Upper=90
+    Saturation1 Lower=-30 Upper=30
+    Gain Gain=50
+
+Initial continuous states from a zero-duration simulation
+   1 Ctrl_For_HRV/actuator/Integrator                                       dim=1 values=0
+   2 Ctrl_For_HRV/actuator1/Integrator                                      dim=1 values=0
+   3 Ctrl_For_HRV/actuator2/Integrator                                      dim=1 values=0
+   4 Ctrl_For_HRV/HRV_Model/Aerodynamic Parameter perturbation/Integrator   dim=12 values=[0.2 0.3 0.14 0.23 0.17 0.09 0 0 0 0 0 0]
+   5 Ctrl_For_HRV/HRV_Model/S-Function                                      dim=14 values=[0 0 0 0 55690 3475 0 0 0 0 0 0 0 0]
+   6 Ctrl_For_HRV/FlowAngle_Controller/TD_beta/Integrator1                  dim=1 values=0
+   7 Ctrl_For_HRV/FlowAngle_Controller/TD_alpha/Integrator1                 dim=1 values=0
+   8 Ctrl_For_HRV/FlowAngle_Controller/TD_miu/Integrator1                   dim=1 values=0
+   9 Ctrl_For_HRV/AngleRate_Controller/TD_p/Integrator1                     dim=1 values=0
+  10 Ctrl_For_HRV/AngleRate_Controller/TD_q/Integrator1                     dim=1 values=0
+  11 Ctrl_For_HRV/AngleRate_Controller/TD_r/Integrator1                     dim=1 values=0
+  12 Ctrl_For_HRV/FlowAngle_ESO/S-Function                                  dim=6 values=[0 0 0 0 0 0]
+  13 Ctrl_For_HRV/FlowAngle_Controller/TD_alpha/Integrator                  dim=1 values=0
+  14 Ctrl_For_HRV/FlowAngle_Controller/TD_beta/Integrator                   dim=1 values=0
+  15 Ctrl_For_HRV/FlowAngle_Controller/TD_miu/Integrator                    dim=1 values=0
+  16 Ctrl_For_HRV/AngleRate_ESO/S-Function                                  dim=6 values=[0 0 0 0 0 0]
+  17 Ctrl_For_HRV/AngleRate_Controller/TD_p/Integrator                      dim=1 values=0
+  18 Ctrl_For_HRV/AngleRate_Controller/TD_q/Integrator                      dim=1 values=0
+  19 Ctrl_For_HRV/AngleRate_Controller/TD_r/Integrator                      dim=1 values=0
+  20 Ctrl_For_HRV/FlowAngle_Controller/TD_alpha2/Integrator                 dim=1 values=0
+  21 Ctrl_For_HRV/FlowAngle_Controller/TD_beta1/Integrator                  dim=1 values=0
+  22 Ctrl_For_HRV/FlowAngle_Controller/TD_beta2/Integrator                  dim=1 values=0
